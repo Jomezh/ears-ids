@@ -1,0 +1,22 @@
+[project]
+name = "ears-ids"
+version = "0.1.0"
+description = "EARS-IDS: Explainable, Adversarially Robust, Self-Testing Intrusion Detection System"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scikit-learn", "xgboost", "imbalanced-learn", "pyarrow", "joblib"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+dae = ["torch"]                    # P1: real denoising autoencoder
+explain = ["shap", "matplotlib"]   # P2: SHAP work
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "scripts"]
+testpaths = ["tests"]
